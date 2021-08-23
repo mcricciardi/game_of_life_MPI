@@ -12,7 +12,7 @@
 ***
 
 ## **Sommario** 
- 1. [**Introduzione**](##introduzione)
+ 1. [**Introduzione**](#introduzione)
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
  3. [**Implementazione**](#implementazione)
  4. [**Note sulla compilazione ed esecuzione**](#note-compilazione-esecuzione)
@@ -21,7 +21,7 @@
  
 ***
 
-## **1. Introduzione**
+## **Introduzione**
 John Conway, matematico inglese, sviluppò questo gioco con l'intenzione di rappresentare un automa cellulare, basato su piccole **regole** di vita e morte. 
 
 ## **2. Descrizione del progetto**
