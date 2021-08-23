@@ -24,10 +24,10 @@
 ## **Introduzione**
 John Conway, matematico inglese, sviluppò questo gioco con l'intenzione di rappresentare un automa cellulare, basato su piccole **regole** di vita e morte. 
 
-## **2. Descrizione del progetto**
+## **Descrizione del progetto**
 Il progetto ha lo scopo di implementare **Game of Life** attraverso l'utilizzo di una matrice non quadrata, dove ogni **cella**, elemento della matrice, evolve secondo precise regole. La matrice verrà suddivisa in sottomatrici e inviate dal **MASTER** a diversi processi chiamati **SLAVES**. Gli SLAVES, compreso il MASTER, calcoleranno quanti vicini vivi ogni cella ha, per determinare se cambiare il suo stato da **LIVE** a **DEATH** o viceversa. Dopodiché i risultati saranno inviati al MASTER che provvederà a stampare la nuova matrice. Questo procedimento viene eseguito per diverse iterazioni.
 
-## **3. Implementazione**
+## **Implementazione**
 Il programma è stato sviluppato in **C** e la comunicazione parallela tra i processi avviene tramite la libreria **MPI (Message Passing Interface)**.
 
 ### Inizializzazione MPI  
