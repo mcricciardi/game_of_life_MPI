@@ -12,7 +12,7 @@
 ***
 
 ## **Sommario** 
- 1. [**Introduzione**](#introduzione)
+ 1. [**Introduzione**](##introduzione)
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
  3. [**Implementazione**](#implementazione)
  4. [**Note sulla compilazione ed esecuzione**](#note-compilazione-esecuzione)
