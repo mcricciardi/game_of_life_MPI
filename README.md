@@ -35,13 +35,13 @@ I processi sono raggruppati in una topologia 2D in modo che ogni processo invier
 **Esempio:**
 MASTER riga top -> ultimo task
 MASTER riga bottom -> task successivo
----
+
 task n°1 SLAVE riga top -> al MASTER
 task n°1 SLAVE riga bottom -> task n°2
----
+
 ultimo task SLAVE riga top -> penultimo task
 ultimo task SLAVE riga bottom -> al MASTER
----
+
 Le righe fantasme sono utilizzate per calcolare quante celle vive ogni elemento della matrice possiede. Una volta calcolato le celle vive vicine, in base al conteggio, cambia lo stato della singola cella, D per DEATH o L per LIVE.
 Fatto ciò, ogni processo invia tramite la routine MPI_Igatherv, la propria sottomatrice al MASTER.
 
