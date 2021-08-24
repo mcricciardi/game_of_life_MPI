@@ -21,13 +21,13 @@
  
 ***
 
-## **1. Introduzione**
+## **Introduzione**
 John Conway, matematico inglese, sviluppò questo gioco con l'intenzione di rappresentare un automa cellulare, basato su piccole **regole** di vita e morte. 
 
-## **2. Descrizione del progetto**
+## **Descrizione del progetto**
 Il progetto ha lo scopo di implementare **Game of Life** attraverso l'utilizzo di una matrice non quadrata, dove ogni **cella**, elemento della matrice, evolve secondo precise regole. La matrice verrà suddivisa in sottomatrici e inviate dal **MASTER** a diversi processi chiamati **SLAVES**. Gli SLAVES, compreso il MASTER, calcoleranno quanti vicini vivi ogni cella ha, per determinare se cambiare il suo stato da **LIVE** a **DEATH** o viceversa. Dopodiché i risultati saranno inviati al MASTER che provvederà a stampare la nuova matrice. Questo procedimento viene eseguito per diverse iterazioni.
 
-## **3. Implementazione**
+## **Implementazione**
 Il programma è stato sviluppato in **C** e la comunicazione parallela tra i processi avviene tramite la libreria **MPI (Message Passing Interface)**.
 Il processo MASTER crea una matrice ed equamente invia le righe ai processi SLAVES. Tramite MPI_Scatterv, una routine di MPI, si inviano le singole righe e ogni processo, compreso il MASTER, non avrà lo stesso numero di righe, quindi il buffer da inviare avrà elementi diversi.
 I processi sono raggruppati in una topologia 2D in modo che ogni processo invierà ai suoi vicini a sinistra e destra, una copia delle righe superiore e inferiore della propria sottomatrice. Quindi il MASTER invierà la riga superiore all'ultimo processo e la riga inferiore al processo successivo.
@@ -35,13 +35,13 @@ I processi sono raggruppati in una topologia 2D in modo che ogni processo invier
 **Esempio:**
 MASTER riga top -> ultimo task
 MASTER riga bottom -> task successivo
----
+
 task n°1 SLAVE riga top -> al MASTER
 task n°1 SLAVE riga bottom -> task n°2
----
+
 ultimo task SLAVE riga top -> penultimo task
 ultimo task SLAVE riga bottom -> al MASTER
----
+
 Le righe fantasme sono utilizzate per calcolare quante celle vive ogni elemento della matrice possiede. Una volta calcolato le celle vive vicine, in base al conteggio, cambia lo stato della singola cella, D per DEATH o L per LIVE.
 Fatto ciò, ogni processo invia tramite la routine MPI_Igatherv, la propria sottomatrice al MASTER.
 
