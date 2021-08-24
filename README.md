@@ -35,13 +35,13 @@ I processi sono raggruppati in una topologia 2D in modo che ogni processo invier
 **Esempio:**
 MASTER riga top -> ultimo task
 MASTER riga bottom -> task successivo
-
+---
 task n°1 SLAVE riga top -> al MASTER
 task n°1 SLAVE riga bottom -> task n°2
-
+---
 ultimo task SLAVE riga top -> penultimo task
 ultimo task SLAVE riga bottom -> al MASTER
-
+---
 Le righe fantasme sono utilizzate per calcolare quante celle vive ogni elemento della matrice possiede. Una volta calcolato le celle vive vicine, in base al conteggio, cambia lo stato della singola cella, D per DEATH o L per LIVE.
 Fatto ciò, ogni processo invia tramite la routine MPI_Igatherv, la propria sottomatrice al MASTER.
 
@@ -171,7 +171,8 @@ Ho la necessità di inviare le celle fantasma ai processi in modo che ogni cella
 ```
 ### Esecuzione ad ogni iterazione
 ```c
-for (int iter = 1; iter <= NITER; iter++) {
+    //iterazioni
+    for (int iter = 1; iter <= NITER; iter++) {
 
         /* tramite scatterv invio le sottomatrici ai task
         * ogni sottomatrice ha una dimensione diversa
@@ -193,7 +194,7 @@ for (int iter = 1; iter <= NITER; iter++) {
         MPI_Barrier(cart_comm);
 
         /* RECEIVE
-         *
+         * ogni processo riceve le righe fantasme dal processo precedente e quello successivo
          */
         MPI_Recv(arr_first_row, COLS, MPI_CHAR, prev, tag, cart_comm, &status);
         MPI_Recv(arr_last_row, COLS, MPI_CHAR, next, tag, cart_comm, &status);
@@ -202,21 +203,25 @@ for (int iter = 1; iter <= NITER; iter++) {
          * aggiunge alla workmatrix le righe fantasma e la sottomatrice locale ricevuta dal MASTER
          */
         mergeRowsAtMatrix(arr_first_row, arr_last_row, localMatrix, workMatrix, data->rowcounts[rank]+2, COLS);
-        /*
-         * conta i vicini per ogni elemento della matrice,
-         * ma non tiene conto degli elementi della prima e ultima riga che sono fantasma
-         * quindi x va da 1 a rows-2
-         */
 
         //applico le regole
         rules(workMatrix, localMatrix,  data->rowcounts[rank]+2,  COLS, neighbours);
 
-        /
+        /*
+         * Viene utilizzato una gatherv non bloccante.
+         * Ogni processo invia la propria matrice locale al MASTER
+         */
         MPI_Igatherv(localMatrix,data->counts[rank], MPI_CHAR,
                      matrix, data->counts, data->displacements, MPI_CHAR,
                      MASTER, cart_comm, &request);
+        /*
+         * attende il completamento di gatherv
+         */
         MPI_Wait(&request, MPI_STATUS_IGNORE);
 
+        /*
+         * Il MASTER stampa la matrice modificata con il numero di iterazione
+         */
         if(rank == MASTER) {
             sprintf(msg, "MATRICE ORIGINALE MODIFICATA iterazione n° %d",
                     iter);
