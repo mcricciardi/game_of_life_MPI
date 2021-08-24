@@ -14,7 +14,7 @@
 ## **Sommario** 
  1. [**Introduzione**](#introduzione)
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
- 3. [**Implementazione**](#implementazione)
+ 3. [**Implementazione**](#3.-implementazione)
  4. [**Note sulla compilazione ed esecuzione**](#note-compilazione-esecuzione)
  5. [**Note sull'implementazione**](#note-implementazione)
  6. [**Conclusioni**](#conclusioni)
