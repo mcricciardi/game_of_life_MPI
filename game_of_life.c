@@ -8,7 +8,7 @@
 //numero di colonne della matrice principale
 #define COLS 5
 //numero di iterazioni
-#define NITER 1000
+#define NITER 3
 
 //struttura dati utilizzata per dividire equamente la matrice tra i processi
 typedef struct{
@@ -68,12 +68,6 @@ int main(int argc, char* argv[]) {
     MPI_Status status;
     //rappresenta un handle su un'operazione non bloccante
     MPI_Request request;
-
-    //chiudi il programma se il numero di task non è maggiore o uguale a 2
-    if(!(num_tasks >= 2)){
-        printf("Il numero di task deve essere maggiore o uguale a 2.\n");
-        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-    }
 
     /*
      * Tutti i processi si fermano e ripartono quando tutti sono arrivati alla barriera
