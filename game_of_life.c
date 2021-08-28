@@ -4,11 +4,11 @@
 //numero del rank del processo master
 #define MASTER 0
 //numero di righe della matrice principale
-#define ROWS 7
+#define ROWS 1000
 //numero di colonne della matrice principale
-#define COLS 5
+#define COLS 500
 //numero di iterazioni
-#define NITER 3
+#define NITER 10
 
 //struttura dati utilizzata per dividire equamente la matrice tra i processi
 typedef struct{
@@ -82,11 +82,12 @@ int main(int argc, char* argv[]) {
     data->counts = (int*) malloc(num_tasks * sizeof (int*));
     data->rowcounts = (int*) malloc(num_tasks * sizeof (int*));
     data->displacements = (int*) malloc(num_tasks * sizeof(int*));
+    /* divido la matrice secondo il numero dei task e inizializzo la struttura dati */
+    splitMatrix(rows * cols, num_tasks, data);
 
     if(rank == MASTER){
 
-        /* divido la matrice secondo il numero dei task e inizializzo la struttura dati */
-        splitMatrix(rows * cols, num_tasks, data);
+
 
         /* alloco memoria per la matrice principale creata dal master */
         matrix = (char*) malloc(rows * cols * sizeof (char*));
