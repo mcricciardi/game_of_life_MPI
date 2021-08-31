@@ -164,7 +164,6 @@ int main(int argc, char* argv[]) {
         /*
          * Dopo aver inviato le righe fantasme ai task, aspettano tutti alla barriera
          */
-        printf("\n");
         MPI_Barrier(cart_comm);
 
         /* RECEIVE
@@ -198,7 +197,7 @@ int main(int argc, char* argv[]) {
          */
         if(rank == MASTER) {
             sprintf(msg, "MATRICE ORIGINALE MODIFICATA iterazione n° %d",
-                    iter);
+                    iter-1);
             printMatrix(matrix, ROWS, COLS, msg);
         }
     }
