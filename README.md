@@ -16,7 +16,7 @@
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
  3. [**Implementazione**](#implementazione)
  4. [**Note sulla compilazione ed esecuzione**](#note-compilazione-esecuzione)
- 5. [**Note sull'implementazione**](#note-implementazione)
+ 5. [**Measuring Parallel Scaling Performance**](#note-implementazione)
  6. [**Conclusioni**](#conclusioni)
  
 ***
@@ -76,15 +76,6 @@ Fatto ciò, ogni processo invia tramite la routine MPI_Igatherv, la propria sott
     MPI_Status status;
     //rappresenta un handle su un'operazione non bloccante
     MPI_Request request;
-```
-
-### Chiusura programma
-```c
-    //chiude il programma se il numero di task non è maggiore o uguale a 2
-    if(!(num_tasks >= 2)){
-        printf("Il numero di task deve essere maggiore o uguale a 2.\n");
-        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-    }
 ```
 ### Creazione matrice 
 E' compito del MASTER allocare memoria e inizializzare la matrice principale
@@ -293,6 +284,30 @@ mpicc -o mpi game_of_life.c
 mpirun --allow-run-as-root -np <number of processes> mpi
 ```
 dove <number of processes> è il numero di processori che deve essere un numero intero maggiore o uguale a due.
+
+## Benchmark
+Il programma è stato eseguito su un cluster di quattro istanze **m4.xlarge** Amazon EC2 con 4 vCPU e 16 GB di memoria su macchine Ubuntu Server 20.04 LTS (HVM), SSD Volume Type - ami-09e67e426f25ce0d7. Il cluster è quindi composto in totale da 16 vCPU e 64 GB di memoria.
+Le metriche prese in considerazione per eseguire i test, sono i tempi di esecuzione in secondi, speedup, la weak scalability e la strong scalability.
+
+**Speedup**
+Speedup = T1/Tn dove
+* T1 è l'esecuzione del tempo di calcolo per un solo processore,
+* Tn invece per più processori.
+
+**Weak scalability**
+
+
+**Strong scalability**
+Il numero di processori aumenta, mentre la dimensione del problema rimane costante.
+
+**Scalabilità forte per matrice 100x100**
+
+
+
+### Test 1
+
+
+
 ## **Note sull'implementazione**
 
 | Array Smoothing | Nome e Cognome | Data di consegna |
