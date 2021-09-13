@@ -295,19 +295,29 @@ Speedup = T1/Tn dove
 * Tn invece per più processori.
 
 **Weak scalability**
-
+**Ep = (T1/Tp)*100%** 
 
 **Strong scalability**
+ 
 Il numero di processori aumenta, mentre la dimensione del problema rimane costante.
 
-**Scalabilità forte per matrice 100x100**
 
+### Scalabilità forte per matrice 100x100
+ 
+![](./imgs/Scalabilità%20forte%20100x100%20tempo.png)
+ 
+### Scalabilità forte per matrice 500x500
+ 
+![](./imgs/Scalabilità%20forte%20500x500%20tempo.png)
 
-
-### Test 1
-
-
-
+### Scalabilità forte per matrice 1000x1000
+ 
+![](./imgs/Scalabilità%20forte%201000x1000%20tempo.png)
+ 
+### Scalabilità debole 
+ 
+ 
+ 
 ## **Note sull'implementazione**
 
 | Array Smoothing | Nome e Cognome | Data di consegna |
