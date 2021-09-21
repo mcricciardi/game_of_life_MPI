@@ -290,11 +290,13 @@ Il programma è stato eseguito su un cluster di quattro istanze **m4.xlarge** Am
 Le metriche prese in considerazione per eseguire i test, sono i tempi di esecuzione in secondi, speedup, la weak scalability e la strong scalability.
 
 **Speedup**
-Speedup = T1/Tn dove
+
+ Speedup = T1/Tn dove
 * T1 è l'esecuzione del tempo di calcolo per un solo processore,
 * Tn invece per più processori.
 
 **Weak scalability**
+ 
 **Ep = (T1/Tp)*100%** 
 
 **Strong scalability**
