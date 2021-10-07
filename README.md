@@ -333,6 +333,9 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  
 ### Scalabilità debole 
  
+ All'aumentare dei processi, si aumenta anche la dimensione del problema, il numero di righe in maniera uniforme.
+ 
+ 
  **Ep = (T1/Tp)*100%** 
  
  
