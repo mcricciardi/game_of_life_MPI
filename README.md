@@ -298,8 +298,10 @@ Le metriche prese in considerazione per eseguire i test, sono i tempi di esecuzi
 **Strong scalability**
  
 Il numero di processori aumenta, mentre la dimensione del problema rimane costante.
-**Ep = T1/(P*Tp))*100%**
 
+ **Ep = T1/(P*Tp))*100%**
+
+ 
 ### Scalabilità forte per matrice 100x100
  
 ![](./imgs/Scalabilità%20forte%20100x100%20tempo.png)
@@ -330,7 +332,9 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  
  
 ### Scalabilità debole 
+ 
  **Ep = (T1/Tp)*100%** 
+ 
  
  |     vCPU               |     1           |     2           |     4           |     6           |     8           |     10          |     12          |     14          |     16          |
 |------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
