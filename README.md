@@ -295,14 +295,10 @@ Le metriche prese in considerazione per eseguire i test, sono i tempi di esecuzi
 * T1 è l'esecuzione del tempo di calcolo per un solo processore,
 * Tn invece per più processori.
 
-**Weak scalability**
- 
-**Ep = (T1/Tp)*100%** 
-
 **Strong scalability**
  
 Il numero di processori aumenta, mentre la dimensione del problema rimane costante.
-
+**Ep = T1/(P*Tp))*100%**
 
 ### Scalabilità forte per matrice 100x100
  
@@ -334,6 +330,8 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  
  
 ### Scalabilità debole 
+ **Ep = (T1/Tp)*100%** 
+ 
  |     vCPU               |     1           |     2           |     4           |     6           |     8           |     10          |     12          |     14          |     16          |
 |------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |     Numero di righe    |     100         |     200         |     400         |     600         |     800         |     1000        |     1200        |     14000       |     1600        |
