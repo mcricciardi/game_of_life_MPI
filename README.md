@@ -341,7 +341,7 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  
  |     vCPU               |     1           |     2           |     4           |     6           |     8           |     10          |     12          |     14          |     16          |
 |------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|     Numero di righe    |     100         |     200         |     400         |     600         |     800         |     1000        |     1200        |     14000       |     1600        |
+|     Numero di righe    |     100         |     200         |     400         |     600         |     800         |     1000        |     1200        |     1400       |     1600        |
 |     Tempo(ms)          |     0.014702    |     0.030274    |     0.324914    |     0.394626    |     0.515214    |     0.609765    |     0.737777    |     0.875828    |     0.820073    |
 |     Efficienza         |     100%        |     48,56%      |     4,52%       |     3,72%       |     2,85%       |     2,41%       |     1,99%       |     1,68%       |     1,79%       |
  
@@ -388,3 +388,6 @@ P={some value}
 #### Scalabilità forte N={some value}
 ## Descrizione dei risultati
 # Conclusioni
+ Nella scalabilità forte, vediamo che l'andamento del tempo di esecuzione non è costante, vi sono dei picchi in cui il tempo aumenta per un certo numero di processori, ma aumentando quest'ultimi c'è una leggera dimunuizione del tempo.
+ Invece nella scalabilità debole l'efficienza del programma dimiuisce man mano che aumenta la dimensione dell'input della matrice.
+ A 2000 righe abbiamo errore di memoria.
