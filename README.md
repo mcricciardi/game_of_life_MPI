@@ -297,7 +297,8 @@ Le metriche prese in considerazione per eseguire i test, sono i tempi di esecuzi
 
 **Strong scalability**
  
-Il numero di processori aumenta, mentre la dimensione del problema rimane costante.
+Il numero di processori aumenta, mentre la dimensione del problema rimane costante, quindi il carico di lavoro per i processori viene ridotto.
+ L'efficienza è stata calcolata mediante questa forumula:
 
  **Ep = T1/(P*Tp))*100%**
 
@@ -309,7 +310,6 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  |     vCPU          |     1         |     2         |     4          |     6         |     8         |     10        |     12         |     14        |     16        |
 |-------------------|---------------|---------------|----------------|---------------|---------------|---------------|----------------|---------------|---------------|
 |     Tempo(s)      |     0,8239    |     0,5822    |     0,06166    |     1,1290    |     1,2261    |     1,6467    |      1,8485    |     1,5977    |     1,4767    |
-|     Speedup       |     1         |     1,415     |     1,336      |     0,729     |     0,671     |     0,500     |     0,446      |     0,516     |     0,558     |
 |     Efficienza    |     100%      |     70,76%    |     33,40%     |     12,16%    |     8,40%     |     5%        |     3,71%      |     3,68%     |     3,49%     |
  
 ### Scalabilità forte per matrice 500x500
@@ -335,7 +335,7 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
  
  All'aumentare dei processi, si aumenta anche la dimensione del problema, il numero di righe in maniera uniforme.
  
- 
+ L'efficienza della scalabilità debole è data:
  **Ep = (T1/Tp)*100%** 
  
  
@@ -388,6 +388,6 @@ P={some value}
 #### Scalabilità forte N={some value}
 ## Descrizione dei risultati
 # Conclusioni
- Nella scalabilità forte, vediamo che l'andamento del tempo di esecuzione non è costante, vi sono dei picchi in cui il tempo aumenta per un certo numero di processori, ma aumentando quest'ultimi c'è una leggera dimunuizione del tempo.
- Invece nella scalabilità debole l'efficienza del programma dimiuisce man mano che aumenta la dimensione dell'input della matrice.
- A 2000 righe abbiamo errore di memoria.
+ Nella scalabilità forte, vediamo che l'andamento del tempo di esecuzione non è costante, soprattutto nel primo grafico, vi sono dei picchi in cui il tempo aumenta per un certo numero di processori. Ciò non succede negli altri grafici, quando si aumenta la grandezza della matrice.
+ Invece nella scalabilità debole l'efficienza del programma diminuisce man mano che aumenta la dimensione dell'input della matrice.
+ A 2000 righe abbiamo un errore di memoria.
