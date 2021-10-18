@@ -15,8 +15,8 @@
  1. [**Introduzione**](#introduzione)
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
  3. [**Implementazione**](#implementazione)
- 4. [**Note sulla compilazione ed esecuzione**](#Note sulla compilazione ed esecuzione)
- 5. [**Measuring Parallel Scaling Performance**](#Benchmark)
+ 4. [**Note sulla compilazione ed esecuzione**](#Notesullacompilazioneedesecuzione)
+ 5. [**Benchmark**](#Benchmark)
  6. [**Conclusioni**](#conclusioni)
  
 ***
