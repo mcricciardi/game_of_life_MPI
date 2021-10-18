@@ -16,7 +16,7 @@
  2. [**Descrizione del progetto**](#descrizione-del-progetto)
  3. [**Implementazione**](#implementazione)
  4. [**Note sulla compilazione ed esecuzione**](#Note sulla compilazione ed esecuzione)
- 5. [**Measuring Parallel Scaling Performance**](#note-implementazione)
+ 5. [**Measuring Parallel Scaling Performance**](#Benchmark)
  6. [**Conclusioni**](#conclusioni)
  
 ***
@@ -344,34 +344,6 @@ Il numero di processori aumenta, mentre la dimensione del problema rimane costan
 |     Numero di righe    |     100         |     200         |     400         |     600         |     800         |     1000        |     1200        |     1400       |     1600        |
 |     Tempo(ms)          |     0.014702    |     0.030274    |     0.324914    |     0.394626    |     0.515214    |     0.609765    |     0.737777    |     0.875828    |     0.820073    |
 |     Efficienza         |     100%        |     48,56%      |     4,52%       |     3,72%       |     2,85%       |     2,41%       |     1,99%       |     1,68%       |     1,79%       |
- 
- 
- 
- 
-## **Note sull'implementazione**
-
-| Array Smoothing | Nome e Cognome | Data di consegna |
-| --- | --- | --- | --- |
-# Descrizione della soluzione
-10 righe
-# Codice
-<!--```c
-#include <mpi.h>
-#include <stdio.h>
-int main(int argc, char** argv) {
-MPI_Init(NULL, NULL);
-int world_size;
-MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-int world_rank;
-MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-char processor_name[MPI_MAX_PROCESSOR_NAME];
-int name_len;
-MPI_Get_processor_name(processor_name, &name_len);
-printf("Hello world from processor %s, rank %d out of %d processors\n",
-processor_name, world_rank, world_size);
-MPI_Finalize();
-}
-```-->
 
 # Conclusioni
  Nella scalabilità forte, vediamo che l'andamento del tempo di esecuzione non è costante, soprattutto nel primo grafico, vi sono dei picchi in cui il tempo aumenta per un certo numero di processori. Ciò non succede negli altri grafici, quando si aumenta la grandezza della matrice.
