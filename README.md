@@ -372,21 +372,7 @@ processor_name, world_rank, world_size);
 MPI_Finalize();
 }
 ```-->
-## Note sulla compilazione
-## Note sull'implementazione
-# Risulati
-I={some value}
-P={some value}
-### K = {some value}
-#### Scalabilità debole N={some value}
-#### Scalabilità forte N={some value}
-### K/2 = {some value}
-#### Scalabilità debole N={some value}
-#### Scalabilità forte N={some value}
-### 2K = {some value}
-#### Scalabilità debole N={some value}
-#### Scalabilità forte N={some value}
-## Descrizione dei risultati
+
 # Conclusioni
  Nella scalabilità forte, vediamo che l'andamento del tempo di esecuzione non è costante, soprattutto nel primo grafico, vi sono dei picchi in cui il tempo aumenta per un certo numero di processori. Ciò non succede negli altri grafici, quando si aumenta la grandezza della matrice.
  Invece nella scalabilità debole l'efficienza del programma diminuisce man mano che aumenta la dimensione dell'input della matrice.
